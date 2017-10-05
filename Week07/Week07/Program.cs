@@ -7,26 +7,43 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp5
 {
-    class Teacher
+    class Program
     {
-        // constructor (for initial private/protected variables)
-        public Teacher(string name, float billingRate)
+        static void Main(string[] args)
         {
-            this.name = name;
-            this.billingRate = billingRate;
+            Person p = new Professor();
+            t.SayHi();
+            Console.ReadKey();
         }
-        // figure out the charge based on teacher's rate
-        public float CalculateCharge(float hours)
+    }
+    class Person
+    {
+        public virtual void SayHi()
         {
-            return (hours * billingRate);
+            Console.WriteLine("Hi I'm a person");
         }
-        // return the name of this type
-        public string TypeName()
-        {
-            return ("Teacher");
-        }
-        private string name;
-        protected float billingRate;
     }
 
+    class Student : Person
+    {
+        public override void SayHi()
+        {
+            Console.WriteLine("Hi I'm a student");
+        }
+    }
+
+    class Teacher : Person
+    {
+        public new void SayHi()
+        {
+            Console.WriteLine("Hi I'm a teacher");
+        }
+    }
+   class Professor : Teacher
+    {
+        public new void SayHi()
+        {
+            Console.WriteLine("Hi I'm a Proessor");
+        }
+    }
 }
