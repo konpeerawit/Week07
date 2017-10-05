@@ -11,11 +11,10 @@ namespace ConsoleApp5
     {
         static void Main(string[] args)
         {
-            Student su = new Student();
+            Student su = new Student("Student Name", "12345678");
             try
             {
-                su.Name = "Student Name";
-                su.ID = "12345678";
+                // su.Name = "My name";
                 su.GPA = 3.5f;
                 Console.WriteLine("Student name : " + su.Name);
                 Console.WriteLine("Student ID   : " + su.ID);
@@ -33,15 +32,20 @@ namespace ConsoleApp5
         private string name;
         private string id;
         private float gpa;
+
+        public Student(string Name, string ID)
+        {
+            this.name = Name;   // assign auto variable to the field
+            this.id = ID;
+        }
+
         public string Name
         {
             get { return name; }
-            set { name = value; }
         }
         public string ID
         {
             get { return id; }
-            set { id = value; }
         }
         public float GPA
         {
@@ -58,5 +62,4 @@ namespace ConsoleApp5
             }
         }
     }
-
 }
